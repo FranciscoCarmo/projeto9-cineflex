@@ -7,8 +7,8 @@ export default function oneSession({ session }) {
   const path = `/assentos/${id}`;
 
   return (
-    <Link to={path}>
-      <Session>{name}</Session>;
+    <Link to={path} style={{ textDecoration: "none" }}>
+      <Session>{name}</Session>
     </Link>
   );
 }

@@ -4,7 +4,7 @@ export default function SeatsCategories() {
   return (
     <Container>
       <OneCategory>
-        <Ball></Ball>
+        <Ball isSelected="true"></Ball>
         <p>Selecionado</p>
       </OneCategory>
 
@@ -14,7 +14,7 @@ export default function SeatsCategories() {
       </OneCategory>
 
       <OneCategory>
-        <Ball></Ball>
+        <BallUnavailable></BallUnavailable>
         <p>Indisponível</p>
       </OneCategory>
     </Container>
@@ -49,7 +49,21 @@ const Ball = styled.div`
   width: 25px;
   height: 25px;
   border-radius: 17px;
-  background-color: #c3cfd9;
+  background-color: ${(props) => (props.isAvailable ? "#c3cfd9" : "#FBE192")};
+  background-color: ${(props) => (props.isSelected ? "#8DD7CF" : "#c3cfd9")};
 
   border: solid 1px #7b8b99;
+  border-color: ${(props) => (props.isAvailable ? "#7b8b99" : "#F7C52B")};
+  border-color: ${(props) =>
+    props.isSelected && props.isAvailable ? "#1AAE9E" : "#c3cfd9"};
+`;
+
+const BallUnavailable = styled.div`
+  width: 25px;
+  height: 25px;
+  border-radius: 17px;
+  background-color: ${(props) => (props.isAvailable ? "#c3cfd9" : "#FBE192")};
+
+  border: solid 1px #7b8b99;
+  border-color: ${(props) => (props.isAvailable ? "#7b8b99" : "#F7C52B")};
 `;

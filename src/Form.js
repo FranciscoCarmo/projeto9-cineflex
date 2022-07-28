@@ -6,7 +6,7 @@ export default function Form() {
       <p>Nome do comprador:</p>
       <NameSection placeholder="Digite seu nome..."></NameSection>
 
-      <p>Nome do comprador:</p>
+      <p>CPF do comprador:</p>
       <CpfSection placeholder="Digite seu CPF..."></CpfSection>
       <Button>Reservar assento(s)</Button>
     </FormSection>
@@ -72,5 +72,5 @@ const Button = styled.div`
   justify-content: center;
   align-items: center;
 
-  margin-top: 40px;
+  margin-top: 28px;
 `;

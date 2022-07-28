@@ -8,7 +8,7 @@ export default function Movie({ oneMovie }) {
   console.log(path);
 
   return (
-    <Link to={path}>
+    <Link to={path} style={{ textDecoration: "none" }}>
       <Poster>
         <img src={oneMovie.posterURL}></img>
       </Poster>
