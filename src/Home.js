@@ -1,13 +1,24 @@
+import styled from "styled-components";
+import Movies from "./Movies";
 
-export default Home(){
-    return(
-        <div className="home">
-            <div className="home-title">
-                <h2>Selecione o filme</h2>
-            </div>
-            <div className="movies">
-                colé
-            </div>
-        </div>
-    )
+export default function Home() {
+  return (
+    <div className="home">
+      <HomeTitle>
+        <h2>Selecione o filme</h2>
+      </HomeTitle>
+      <Movies />
+    </div>
+  );
 }
+
+const HomeTitle = styled.div`
+  width: 100%;
+  height: 110px;
+
+  font-size: 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
