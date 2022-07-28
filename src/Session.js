@@ -59,6 +59,8 @@ const SessionTitle = styled.div`
 
   font-size: 24px;
 
+  margin-top: 67px;
+
   display: flex;
   justify-content: center;
   align-items: center;

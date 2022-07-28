@@ -17,6 +17,7 @@ const HomeTitle = styled.div`
   height: 110px;
 
   font-size: 24px;
+  margin-top: 67px;
 
   display: flex;
   justify-content: center;

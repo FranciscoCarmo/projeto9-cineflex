@@ -1,9 +1,16 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-export default function oneSession({ name }) {
-  console.log(name);
+export default function oneSession({ session }) {
+  const { name, id } = session;
 
-  return <Session>{name}</Session>;
+  const path = `/assentos/${id}`;
+
+  return (
+    <Link to={path}>
+      <Session>{name}</Session>;
+    </Link>
+  );
 }
 
 const Session = styled.div`
@@ -21,4 +28,6 @@ const Session = styled.div`
   align-items: center;
 
   margin-right: 10px;
+
+  cursor: pointer;
 `;

@@ -11,7 +11,7 @@ export default function SessionsOfDay({ day }) {
       </h3>
       <SessionContainer>
         {showtimes.map((session) => {
-          return <OneSession name={session.name} key={session.id} />;
+          return <OneSession session={session} key={session.id} />;
         })}
       </SessionContainer>
     </Container>
