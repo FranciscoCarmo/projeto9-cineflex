@@ -1,5 +1,10 @@
 import "./TopHeader.css";
+import { Link } from "react-router-dom";
 
 export default function TopHeader() {
-  return <h1 className="top-header">CINEFLEX</h1>;
+  return (
+    <Link to="/">
+      <h1 className="top-header">CINEFLEX</h1>;
+    </Link>
+  );
 }

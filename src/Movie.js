@@ -1,14 +1,18 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export default function Movie({ oneMovie }) {
-  const { Id, title, posterURL, overview, releaseDate } = oneMovie;
+  const { id, title, posterURL, overview, releaseDate } = oneMovie;
 
-  console.log(oneMovie);
+  const path = `/sessoes/${id}`;
+  console.log(path);
 
   return (
-    <Poster>
-      <img src={oneMovie.posterURL}></img>
-    </Poster>
+    <Link to={path}>
+      <Poster>
+        <img src={oneMovie.posterURL}></img>
+      </Poster>
+    </Link>
   );
 }
 

@@ -1,12 +1,20 @@
 import TopHeader from "./TopHeader";
-import Home from "./Home";
 import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Home from "./Home";
+import Session from "./Session";
 
 export default function App() {
   return (
     <>
-      <TopHeader />
-      <Home />
+      <BrowserRouter>
+        <TopHeader />
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/sessoes/:idFilme" element={<Session />}></Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

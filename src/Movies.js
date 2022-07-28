@@ -23,7 +23,7 @@ export default function Movies() {
     return (
       <MoviesArray>
         {movies.map((oneMovie) => {
-          return <Movie oneMovie={oneMovie} />;
+          return <Movie oneMovie={oneMovie} key={oneMovie.id} />;
         })}
       </MoviesArray>
     );
