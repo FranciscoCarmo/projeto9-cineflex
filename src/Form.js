@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Form({ selectedSeat, setSelectedSeat }) {
   const [name, setName] = useState("");
   const [cpf, setCpf] = useState("");
+  const navigate = useNavigate();
 
   function handleForm(e) {
     e.preventDefault();
@@ -21,6 +23,10 @@ export default function Form({ selectedSeat, setSelectedSeat }) {
       "https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many",
       obj
     );
+
+    requisicao.then(() => {
+      navigate("/sucesso");
+    });
 
     setName("");
     setCpf("");
@@ -49,7 +55,7 @@ export default function Form({ selectedSeat, setSelectedSeat }) {
   );
 }
 
-const FormSection = styled.div`
+const FormSection = styled.form`
   width: 100%;
 
   margin-top: 40px;
@@ -99,6 +105,8 @@ const Button = styled.button`
   width: 225px;
   height: 42px;
   border-radius: 3px;
+
+  border: none;
 
   background-color: #e8833a;
   color: white;
