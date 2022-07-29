@@ -28,25 +28,23 @@ export default function Form({ selectedSeat, setSelectedSeat }) {
   }
 
   return (
-    <FormSection>
-      <form onSubmit={handleForm}>
-        <p>Nome do comprador:</p>
-        <NameSection
-          placeholder="Digite seu nome... "
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        ></NameSection>
+    <FormSection onSubmit={handleForm}>
+      <p>Nome do comprador:</p>
+      <NameSection
+        placeholder="Digite seu nome... "
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        required
+      ></NameSection>
 
-        <p>CPF do comprador:</p>
-        <CpfSection
-          placeholder="Digite seu CPF..."
-          value={cpf}
-          onChange={(e) => setCpf(e.target.value)}
-          required
-        ></CpfSection>
-        <Button type="submit">Reservar assento(s)</Button>
-      </form>
+      <p>CPF do comprador:</p>
+      <CpfSection
+        placeholder="Digite seu CPF..."
+        value={cpf}
+        onChange={(e) => setCpf(e.target.value)}
+        required
+      ></CpfSection>
+      <Button type="submit">Reservar assento(s)</Button>
     </FormSection>
   );
 }

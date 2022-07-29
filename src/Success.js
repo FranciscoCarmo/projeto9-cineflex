@@ -19,7 +19,7 @@ export default function Success() {
       <p>CPF: 11776393600</p>
 
       <div>
-        <Link to="/Home" style={{ textDecoration: "none" }}>
+        <Link to="/" style={{ textDecoration: "none" }}>
           <Button>Voltar pra Home</Button>
         </Link>
       </div>
