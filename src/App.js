@@ -7,6 +7,7 @@ import Home from "./Home";
 import Session from "./Session";
 import SeatsPage from "./SeatsPage";
 import GlobalStyle from "./globalStyles";
+import Success from "./Success";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
             <Route path="/" element={<Home />}></Route>
             <Route path="/sessoes/:idFilme" element={<Session />}></Route>
             <Route path="/assentos/:idSessao" element={<SeatsPage />}></Route>
+            <Route path="/sucesso" element={<Success />}></Route>
           </Routes>
         </BrowserRouter>
       </Content>
