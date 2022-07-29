@@ -46,4 +46,8 @@ const Content = styled.div`
   box-sizing: border-box;
 
   font-family: "Roboto", sans-serif;
+
+  * {
+    box-sizing: border-box;
+  }
 `;

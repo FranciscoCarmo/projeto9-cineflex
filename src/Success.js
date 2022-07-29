@@ -43,7 +43,7 @@ export default function Success({ pedido }) {
 
 const Wrapper = styled.div`
   width: 100%;
-  /* padding: 0 30px; */
+  padding: 0 30px;
 
   margin-bottom: 117px;
 
@@ -54,12 +54,10 @@ const Wrapper = styled.div`
     font-weight: bold;
     font-size: 24px;
     margin-top: 35px;
-    margin-left: 45px;
   }
   p {
     font-size: 22px;
     margin-top: 6px;
-    margin-left: 45px;
   }
 
   div {
@@ -68,7 +66,7 @@ const Wrapper = styled.div`
 `;
 
 const SuccessTitle = styled.div`
-  width: call(100%-90px);
+  width: 100%;
   height: 110px;
 
   font-size: 24px;
