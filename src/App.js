@@ -1,5 +1,5 @@
 import TopHeader from "./TopHeader";
-import "./App.css";
+
 import styled from "styled-components";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -38,6 +38,7 @@ export default function App() {
 
 const Content = styled.div`
   max-width: 700px;
+  width: 100vw;
 
   display: flex;
   flex-direction: column;

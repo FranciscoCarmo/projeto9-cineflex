@@ -6,6 +6,7 @@ import axios from "axios";
 import SeatsCategories from "./SeatsCategories";
 import Seat from "./Seat";
 import Form from "./Form";
+import Back from "./Back";
 
 export default function SeatsPage({ pedido, setPedido }) {
   const { idSessao } = useParams();
@@ -29,6 +30,7 @@ export default function SeatsPage({ pedido, setPedido }) {
 
     return (
       <>
+        <Back />
         <SeatsPageTitle>Selecione o(s) assentos(s)</SeatsPageTitle>
 
         <SeatsArray>
@@ -98,7 +100,6 @@ const SeatsPageTitle = styled.div`
 
 const SeatsContainer = styled.div`
   width: 100%;
-  padding: 0 10px;
   display: flex;
   flex-direction: column;
 `;
@@ -114,7 +115,7 @@ const SeatsArray = styled.div`
 `;
 
 const Footer = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 117px;
 
   position: fixed;

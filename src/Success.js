@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Back from "./Back";
 
 export default function Success({ pedido }) {
   console.log("Sucesso");
@@ -9,36 +10,40 @@ export default function Success({ pedido }) {
     pedido;
 
   return (
-    <Wrapper>
-      <SuccessTitle>Pedido feito com sucesso!</SuccessTitle>
+    <>
+      <Back />
 
-      <h3>Filme e sessão</h3>
-      <p>{movie.title}</p>
-      <p>
-        {day.date} {time}
-      </p>
-      <h3>Ingressos</h3>
+      <Wrapper>
+        <SuccessTitle>Pedido feito com sucesso!</SuccessTitle>
 
-      {SelectedSeatNumber.map((seat, key) => {
-        return <p key={key}>Assento {seat} </p>;
-      })}
+        <h3>Filme e sessão</h3>
+        <p>{movie.title}</p>
+        <p>
+          {day.date} {time}
+        </p>
+        <h3>Ingressos</h3>
 
-      <h3>Comprador</h3>
-      <p>Nome: {name}</p>
-      <p>CPF: {cpf}</p>
+        {SelectedSeatNumber.map((seat, key) => {
+          return <p key={key}>Assento {seat} </p>;
+        })}
 
-      <div>
-        <Link to="/" style={{ textDecoration: "none" }}>
-          <Button>Voltar pra Home</Button>
-        </Link>
-      </div>
-    </Wrapper>
+        <h3>Comprador</h3>
+        <p>Nome: {name}</p>
+        <p>CPF: {cpf}</p>
+
+        <div>
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <Button>Voltar pra Home</Button>
+          </Link>
+        </div>
+      </Wrapper>
+    </>
   );
 }
 
 const Wrapper = styled.div`
   width: 100%;
-  padding: 0 30px;
+  /* padding: 0 30px; */
 
   margin-bottom: 117px;
 
@@ -49,10 +54,12 @@ const Wrapper = styled.div`
     font-weight: bold;
     font-size: 24px;
     margin-top: 35px;
+    margin-left: 45px;
   }
   p {
     font-size: 22px;
     margin-top: 6px;
+    margin-left: 45px;
   }
 
   div {
@@ -61,7 +68,7 @@ const Wrapper = styled.div`
 `;
 
 const SuccessTitle = styled.div`
-  width: 100%;
+  width: call(100%-90px);
   height: 110px;
 
   font-size: 24px;

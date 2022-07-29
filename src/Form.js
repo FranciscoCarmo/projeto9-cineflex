@@ -81,8 +81,8 @@ export default function Form({
 const FormSection = styled.form`
   width: 100%;
 
-  margin-top: 40px;
-  padding: 0 25px;
+  margin-top: 20px;
+  /* padding: 0 25px; */
 
   font-size: 18px;
 

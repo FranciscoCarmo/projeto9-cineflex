@@ -10,7 +10,7 @@ export default function TopHeader() {
 }
 
 const Header = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 67px;
   display: flex;
   justify-content: center;

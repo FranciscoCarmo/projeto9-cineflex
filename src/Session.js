@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import Back from "./Back";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -24,6 +25,7 @@ export default function Session() {
 
     return (
       <>
+        <Back />
         <SessionTitle>
           <h2>Selecione o horário</h2>
         </SessionTitle>
@@ -69,7 +71,7 @@ const SessionTitle = styled.div`
 `;
 
 const Footer = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 117px;
 
   position: fixed;
