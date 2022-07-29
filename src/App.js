@@ -8,8 +8,10 @@ import Session from "./Session";
 import SeatsPage from "./SeatsPage";
 import GlobalStyle from "./globalStyles";
 import Success from "./Success";
+import { useState } from "react";
 
 export default function App() {
+  const [pedido, setPedido] = useState({});
   return (
     <>
       <GlobalStyle />
@@ -19,8 +21,14 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/sessoes/:idFilme" element={<Session />}></Route>
-            <Route path="/assentos/:idSessao" element={<SeatsPage />}></Route>
-            <Route path="/sucesso" element={<Success />}></Route>
+            <Route
+              path="/assentos/:idSessao"
+              element={<SeatsPage pedido={pedido} setPedido={setPedido} />}
+            ></Route>
+            <Route
+              path="/sucesso"
+              element={<Success pedido={pedido} />}
+            ></Route>
           </Routes>
         </BrowserRouter>
       </Content>

@@ -3,7 +3,17 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export default function Form({ selectedSeat, setSelectedSeat }) {
+export default function Form({
+  selectedSeat,
+  setSelectedSeat,
+  pedido,
+  setPedido,
+  movie,
+  day,
+  time,
+  SelectedSeatNumber,
+  setSelectedSeatNumber,
+}) {
   const [name, setName] = useState("");
   const [cpf, setCpf] = useState("");
   const navigate = useNavigate();
@@ -17,20 +27,28 @@ export default function Form({ selectedSeat, setSelectedSeat }) {
       cpf,
     };
 
-    console.log(obj);
-
     const requisicao = axios.post(
       "https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many",
       obj
     );
 
     requisicao.then(() => {
+      setPedido({
+        name,
+        cpf,
+        movie,
+        selectedSeat,
+        day,
+        time,
+        SelectedSeatNumber,
+      });
       navigate("/sucesso");
     });
 
     setName("");
     setCpf("");
     setSelectedSeat([]);
+    setSelectedSeatNumber([]);
   }
 
   return (

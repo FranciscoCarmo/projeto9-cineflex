@@ -7,11 +7,12 @@ import SeatsCategories from "./SeatsCategories";
 import Seat from "./Seat";
 import Form from "./Form";
 
-export default function SeatsPage() {
+export default function SeatsPage({ pedido, setPedido }) {
   const { idSessao } = useParams();
 
   const [sessionData, setSessionData] = useState();
   const [selectedSeat, setSelectedSeat] = useState([]);
+  const [selectedSeatNumber, setSelectedSeatNumber] = useState([]);
 
   useEffect(() => {
     const requisicao = axios.get(`
@@ -38,6 +39,9 @@ export default function SeatsPage() {
                 key={seat.id}
                 selectedSeat={selectedSeat}
                 setSelectedSeat={setSelectedSeat}
+                time={name}
+                SelectedSeatNumber={selectedSeatNumber}
+                setSelectedSeatNumber={setSelectedSeatNumber}
               />
             );
           })}
@@ -47,7 +51,16 @@ export default function SeatsPage() {
           <SeatsCategories />
         </SeatsContainer>
 
-        <Form selectedSeat={selectedSeat} setSelectedSeat={setSelectedSeat} />
+        <Form
+          selectedSeat={selectedSeat}
+          setSelectedSeat={setSelectedSeat}
+          pedido={pedido}
+          setPedido={setPedido}
+          movie={movie}
+          day={day}
+          SelectedSeatNumber={selectedSeatNumber}
+          setSelectedSeatNumber={setSelectedSeatNumber}
+        />
 
         <Footer>
           <Poster>

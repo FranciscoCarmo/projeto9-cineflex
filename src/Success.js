@@ -1,22 +1,31 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export default function Success() {
+export default function Success({ pedido }) {
+  console.log("Sucesso");
+  console.log(pedido);
+
+  const { cpf, selectedSeat, time, day, movie, name, SelectedSeatNumber } =
+    pedido;
+
   return (
     <Wrapper>
       <SuccessTitle>Pedido feito com sucesso!</SuccessTitle>
 
       <h3>Filme e sessão</h3>
-      <p>Xuxa e os doendes</p>
-      <p>08/03/1995 14:00</p>
+      <p>{movie.title}</p>
+      <p>
+        {day.date} {time}
+      </p>
       <h3>Ingressos</h3>
 
-      <p>Assento 2</p>
-      <p>Assento 5</p>
+      {SelectedSeatNumber.map((seat, key) => {
+        return <p key={key}>Assento {seat} </p>;
+      })}
 
       <h3>Comprador</h3>
-      <p>Nome: Francisco Carmo</p>
-      <p>CPF: 11776393600</p>
+      <p>Nome: {name}</p>
+      <p>CPF: {cpf}</p>
 
       <div>
         <Link to="/" style={{ textDecoration: "none" }}>

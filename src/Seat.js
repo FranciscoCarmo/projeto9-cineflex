@@ -1,6 +1,12 @@
 import styled from "styled-components";
 
-export default function Seat({ seat, selectedSeat, setSelectedSeat }) {
+export default function Seat({
+  seat,
+  selectedSeat,
+  setSelectedSeat,
+  SelectedSeatNumber,
+  setSelectedSeatNumber,
+}) {
   const { id, name, isAvailable } = seat;
 
   let border = "#F7C52B";
@@ -25,10 +31,11 @@ export default function Seat({ seat, selectedSeat, setSelectedSeat }) {
 
         if (!selectedSeat.includes(id) && isAvailable) {
           setSelectedSeat([...selectedSeat, id]);
+          setSelectedSeatNumber([...SelectedSeatNumber, name]);
         } else {
           setSelectedSeat(selectedSeat.filter((x) => x != id));
+          setSelectedSeatNumber(SelectedSeatNumber.filter((x) => x != name));
         }
-        console.log(selectedSeat);
       }}
     >
       {name}
