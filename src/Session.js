@@ -51,7 +51,7 @@ const SessionsContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  padding: 0 22px;
+  margin-left: 22px;
   margin-bottom: 117px;
 `;
 
