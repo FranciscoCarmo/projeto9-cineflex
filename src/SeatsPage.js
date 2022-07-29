@@ -11,6 +11,7 @@ export default function SeatsPage() {
   const { idSessao } = useParams();
 
   const [sessionData, setSessionData] = useState();
+  const [selectedSeat, setSelectedSeat] = useState([]);
 
   useEffect(() => {
     const requisicao = axios.get(`
@@ -31,7 +32,14 @@ export default function SeatsPage() {
 
         <SeatsArray>
           {seats.map((seat) => {
-            return <Seat seat={seat} key={seat.id} />;
+            return (
+              <Seat
+                seat={seat}
+                key={seat.id}
+                selectedSeat={selectedSeat}
+                setSelectedSeat={setSelectedSeat}
+              />
+            );
           })}
         </SeatsArray>
 
@@ -39,7 +47,7 @@ export default function SeatsPage() {
           <SeatsCategories />
         </SeatsContainer>
 
-        <Form />
+        <Form selectedSeat={selectedSeat} setSelectedSeat={setSelectedSeat} />
 
         <Footer>
           <Poster>

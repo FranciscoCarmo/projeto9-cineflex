@@ -1,10 +1,36 @@
 import styled from "styled-components";
 
-export default function Seat({ seat }) {
+export default function Seat({ seat, selectedSeat, setSelectedSeat }) {
   const { id, name, isAvailable } = seat;
 
+  let border = "#F7C52B";
+  let bkground = "#FBE192";
+
+  if (isAvailable) {
+    border = "#7b8b99";
+    bkground = "#c3cfd9";
+  }
+
+  if (selectedSeat.includes(id)) {
+    border = "#1AAE9E";
+    bkground = "#8DD7CF";
+  }
+
   return (
-    <Ball isAvailable={isAvailable} onClick={() => console.log(isAvailable)}>
+    <Ball
+      border={border}
+      bkground={bkground}
+      onClick={() => {
+        console.log(isAvailable);
+
+        if (!selectedSeat.includes(id) && isAvailable) {
+          setSelectedSeat([...selectedSeat, id]);
+        } else {
+          setSelectedSeat(selectedSeat.filter((x) => x != id));
+        }
+        console.log(selectedSeat);
+      }}
+    >
       {name}
     </Ball>
   );
@@ -14,12 +40,12 @@ const Ball = styled.div`
   width: 25px;
   height: 25px;
   border-radius: 17px;
-  background-color: ${(props) => (props.isAvailable ? "#c3cfd9" : "#FBE192")};
+  background-color: ${(props) => props.bkground};
 
   margin: 7px 5px;
 
   border: solid 1px #7b8b99;
-  border-color: ${(props) => (props.isAvailable ? "#7b8b99" : "#F7C52B")};
+  border-color: ${(props) => props.border};
 
   display: flex;
   justify-content: center;

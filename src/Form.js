@@ -1,14 +1,52 @@
 import styled from "styled-components";
+import { useState } from "react";
+import axios from "axios";
 
-export default function Form() {
+export default function Form({ selectedSeat, setSelectedSeat }) {
+  const [name, setName] = useState("");
+  const [cpf, setCpf] = useState("");
+
+  function handleForm(e) {
+    e.preventDefault();
+
+    const obj = {
+      ids: selectedSeat,
+      name,
+      cpf,
+    };
+
+    console.log(obj);
+
+    const requisicao = axios.post(
+      "https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many",
+      obj
+    );
+
+    setName("");
+    setCpf("");
+    setSelectedSeat([]);
+  }
+
   return (
     <FormSection>
-      <p>Nome do comprador:</p>
-      <NameSection placeholder="Digite seu nome..."></NameSection>
+      <form onSubmit={handleForm}>
+        <p>Nome do comprador:</p>
+        <NameSection
+          placeholder="Digite seu nome... "
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        ></NameSection>
 
-      <p>CPF do comprador:</p>
-      <CpfSection placeholder="Digite seu CPF..."></CpfSection>
-      <Button>Reservar assento(s)</Button>
+        <p>CPF do comprador:</p>
+        <CpfSection
+          placeholder="Digite seu CPF..."
+          value={cpf}
+          onChange={(e) => setCpf(e.target.value)}
+          required
+        ></CpfSection>
+        <Button type="submit">Reservar assento(s)</Button>
+      </form>
     </FormSection>
   );
 }
@@ -59,7 +97,7 @@ const CpfSection = styled.input`
   padding-left: 20px;
 `;
 
-const Button = styled.div`
+const Button = styled.button`
   width: 225px;
   height: 42px;
   border-radius: 3px;
