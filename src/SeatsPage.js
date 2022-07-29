@@ -58,6 +58,7 @@ export default function SeatsPage({ pedido, setPedido }) {
           setPedido={setPedido}
           movie={movie}
           day={day}
+          time={name}
           SelectedSeatNumber={selectedSeatNumber}
           setSelectedSeatNumber={setSelectedSeatNumber}
         />

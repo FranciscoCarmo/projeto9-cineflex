@@ -18,6 +18,7 @@ export default function Form({
   const [cpf, setCpf] = useState("");
   const navigate = useNavigate();
 
+  // Função de submit
   function handleForm(e) {
     e.preventDefault();
 
@@ -27,28 +28,32 @@ export default function Form({
       cpf,
     };
 
-    const requisicao = axios.post(
-      "https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many",
-      obj
-    );
+    if (selectedSeat.length > 0 && name.length > 0 && cpf.length > 0) {
+      const requisicao = axios.post(
+        "https://mock-api.driven.com.br/api/v5/cineflex/seats/book-many",
+        obj
+      );
 
-    requisicao.then(() => {
-      setPedido({
-        name,
-        cpf,
-        movie,
-        selectedSeat,
-        day,
-        time,
-        SelectedSeatNumber,
+      requisicao.then(() => {
+        setPedido({
+          name,
+          cpf,
+          movie,
+          selectedSeat,
+          day,
+          time,
+          SelectedSeatNumber,
+        });
+        navigate("/sucesso");
       });
-      navigate("/sucesso");
-    });
 
-    setName("");
-    setCpf("");
-    setSelectedSeat([]);
-    setSelectedSeatNumber([]);
+      setName("");
+      setCpf("");
+      setSelectedSeat([]);
+      setSelectedSeatNumber([]);
+    } else {
+      alert("Selecione os assentos desejados");
+    }
   }
 
   return (

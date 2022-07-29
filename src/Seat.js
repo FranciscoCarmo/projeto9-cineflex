@@ -28,7 +28,7 @@ export default function Seat({
       bkground={bkground}
       onClick={() => {
         console.log(isAvailable);
-
+        if (!isAvailable) alert("Esse assento não está disponível");
         if (!selectedSeat.includes(id) && isAvailable) {
           setSelectedSeat([...selectedSeat, id]);
           setSelectedSeatNumber([...SelectedSeatNumber, name]);
