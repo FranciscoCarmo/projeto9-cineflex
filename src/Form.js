@@ -82,6 +82,7 @@ const FormSection = styled.form`
   width: 100%;
 
   margin-top: 20px;
+  margin-bottom: 117px;
   /* padding: 0 25px; */
 
   font-size: 18px;

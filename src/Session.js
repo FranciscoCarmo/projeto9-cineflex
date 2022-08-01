@@ -52,7 +52,7 @@ const SessionsContainer = styled.div`
   flex-direction: column;
 
   margin-left: 22px;
-  margin-bottom: 117px;
+  margin-bottom: 137px;
 `;
 
 const SessionTitle = styled.div`
